@@ -1,36 +1,18 @@
-// var ultimoItem = videoGames.pop();
+var numero = 20;
+var numero2 = 10;
 
-for(let numero = 1; numero <= 4; numero++){
-    console.log(numero);
-}
+numero += numero2;
+console.log(numero);
+console.log(numero2);
 
-var i = 0;
+var idade = 19;
+var naoPossuiDiabetes = false;
+var podeBeber = (idade >= 18 && naoPossuiDiabetes) ? 'Pode beber' : 'Não pode beber';
 
-while(i < 10){
-    console.log(i);
-    i++;
-}
+console.log(podeBeber);
 
-var videoGames = ['Switch', 'PS4', 'Xbox', '3DS'];
-for (let item = 0; item < videoGames.length; item++){
-    console.log(videoGames[item]);
-    if(videoGames[item] === 'PS4'){
-        break;
-    }  
-}
-
-videoGames.forEach(function(videogame) {
-    console.log(videogame)
-})
-
-var frutas = ['banana', 'pera', 'maça', 'abacaxi', 'uva']
-frutas.forEach(function(fruta, index, array){
-    console.log(fruta, index, array)
-})
-
-var numero = 0;
-var maximo = 50;
-for(;numero < maximo;){
-    console.log(numero)
-    break
-}
+var possuiFaculdade = true;
+if(possuiFaculdade) 
+    console.log('possui faculdade')
+else
+    console.log('não possui faculdade')
