@@ -1,13 +1,16 @@
-// window.alert('Isso mesmo');
+// Retorne o url da página atual utilizando o objeto window
+let url_atual = window.location.href;
+console.log(url_atual);
 
-const href = "http://127.0.0.1:5500/DOM%20Para%20Iniciantes/o%20que%20%C3%A9%20o%20dom/";
+// Seleciona o primeiro elemento da página que
+// possua a classe ativo
+let primeiro = document.querySelector('.ativo');
+console.log(primeiro);
 
-console.log(href);
+// Retorne a linguagem do navegador
+let linguagem = navigator.language;
+console.log(linguagem);
 
-if(href === '"http://127.0.0.1:5500/DOM'){
-  console.log('é igual');
-}
-
-const h1Selecionado = document.querySelector('h1');
-
-alert('Teste');
+// Retorne a largura da janela 
+let largura = window.innerWidth;
+console.log(largura);
