@@ -11,6 +11,14 @@ dl {
   padding: 0;
 }
 
+html {
+  font-size: 16px;
+}
+
+html.textoMaior {
+  font-size: 120%;
+}
+
 .azul {
   background-color: teal;
 }

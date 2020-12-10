@@ -1,48 +1,51 @@
-const img = document.querySelector('img');
+// Quando o usuário clicar nos links internos do site,
+// adicione a classe ativo ao item clicado e remova dos
+// demais itens caso eles possuam a mesma. Previna
+// o comportamento padrão desses links
+const linksInternos = document.querySelectorAll('a[href^="#"]')
 
-function callback(event) {
-    console.log(event);
+function adicionarClasse(event){
+    event.preventDefault();
+    linksInternos.forEach((item) => {
+        item.classList.remove('ativo');
+    })
+    event.currentTarget.classList.add('ativo') //pego exatamente o item clicado
 }
 
-// img.addEventListener('click', callback)
+linksInternos.forEach((item) =>{
+    item.addEventListener('click', adicionarClasse)
+});
 
-const animaisLista = document.querySelector('.animais-lista')
-
-animaisLista.addEventListener('click', callbackLista);
-
-function callbackLista(event) {
-    console.log(event.currentTarget) //elemento exato que você pegou via document
-    console.log(event.target) //onde você clicou a tela
-    console.log(event.type)
+// Selecione todos os elementos do site começando a partir do body,
+// ao clique mostre exatamente quais elementos estão sendo clicados
+function handleClick(event){
+    console.log(event.currentTarget);
 }
 
+const todosElementos = document.querySelectorAll("body *");
 
-const linkExterno = document.querySelector('a[href^=http]');
+todosElementos.forEach((item) => {
+    item.addEventListener('click', handleClick)
+})
 
-function handleLInkExterno(event){
-    event.preventDefault(); //previno o funcionamento de um determnado elemento
-    // console.log('clicou');
-    console.log(this.getAttribute('href')); //referencia o elemento escolhido (this == event.currentTarget)
-}
+// Utilizando o código anterior, ao invés de mostrar no console,
+// remova o elemento que está sendo clicado, o método remove() remove um elemento
 
-linkExterno.addEventListener('click', handleLInkExterno);
+// function removeClick(event) {
+//     console.log(event.currentTarget.remove());
+// }
 
-const h1 = document.querySelector('h1');
+// const todosElementos1 = document.querySelectorAll('body *');
 
-function handleEvent(event){
-    console.log(event.type, event);
-}
+// todosElementos1.forEach((item) => {
+//     item.addEventListener('click', removeClick)
+// })
 
-// h1.addEventListener('click', handleEvent)
-// h1.addEventListener('mouseenter', handleEvent)
-// h1.addEventListener('mousemove', handleEvent)
-
-// window.addEventListener('scroll', handleEvent)
-// window.addEventListener('resize', handleEvent)
-function handleKeyboard(event){
-    if(event.key == 'a'){
-        document.body.classList.toggle('azul')
+// Se o usuário clicar na tecla (t), aumente todo o texto do site. 
+function maximizeText(event) {
+    if(event.key == 't'){
+        document.documentElement.classList.toggle('textoMaior')
     }
-}
+} 
 
-window.addEventListener('keydown', handleKeyboard)
+window.addEventListener('keydown', maximizeText);
