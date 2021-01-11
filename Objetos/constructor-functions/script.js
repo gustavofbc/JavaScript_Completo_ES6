@@ -1,6 +1,6 @@
 // Transforme o objeto abaixo em uma Constructor Function
 function Pessoa(nome, idade) {
-    this.nome = nome,
+    const nomeRepassado = nome
     this.idade = idade + ' anos',
     this.andar = function() {
       return console.log(this.nome + ' andou');
