@@ -1,83 +1,94 @@
-// const comida = "Pizza";
+// Utilizando o foreach na array abaixo,
+// some os valores de Taxa e os valores de Recebimento
 
-// const agua = new String('Água');
+const transacoes = [
+    {
+      descricao: 'Taxa do Pão',
+      valor: 'R$ 39',
+    },
+    {
+      descricao: 'Taxa do Mercado',
+      valor: 'R$ 129',
+    },
+    {
+      descricao: 'Recebimento de Cliente',
+      valor: 'R$ 99',
+    },
+    {
+      descricao: 'Taxa do Banco',
+      valor: 'R$ 129',
+    },
+    {
+      descricao: 'Recebimento de Cliente',
+      valor: 'R$ 49',
+    },
+  ];
 
-// console.log(agua.length)
+  /* criar variaveis para receber as somas */
+  let somaTaxa = 0;
+  let somaRecebimento = 0;
 
-// const frase = "A melhor comida";
+  transacoes.forEach((item) => {
 
-// console.log(frase[frase.length - 1]);
-// console.log(frase.charAt(frase.length));
+        /* quebrar o item em array */
+        itemArray = item.descricao.split(' ');
+        /* formatar o valor*/
+        item.valor = item.valor.replace('R$ ', '');
+        item.valor = Number(item.valor)
 
-const frase = "A melhor linguagem é ";
-const linguagem = 'JavaScript';
+        /* verificar o tipo */
+        if(itemArray[0] == "Taxa"){
+            somaTaxa += item.valor;
+        } else {
+            somaRecebimento += item.valor;
+        }
+    })
 
-const fraseFinal = frase.concat(linguagem, ' hehehe');
+    console.log(somaTaxa);
+    console.log(somaRecebimento);
+    
+/* ================================================= */
+  
+  // Retorne uma array com a lista abaixo
+  const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
+    console.log(transportes.split(';'));
 
-const fruta = 'Banana';
-const listaFrutas = 'Melancia, Banana, Laranja';
+/* ================================================= */
 
-console.log(listaFrutas.includes(fruta));
-console.log(fruta.includes(listaFrutas));
+  // Substitua todos os span's por a's
+  const html = `<ul>
+                  <li><span>Sobre</span></li>
+                  <li><span>Produtos</span></li>
+                  <li><span>Contato</span></li>
+                </ul>`;
+  const arrayHtml = html.split('span');
+  const novoHtml = arrayHtml.join('a');
 
-console.log(fruta.startsWith('Ba'));
-console.log(fruta.endsWith('Ba'));
+  console.log(novoHtml);
 
-const transacao1 = 'Depósito de cliente';
-const transacao2 = 'Depósito de fornecedor';
-const transacao3 = 'Taxa de camisas';
+/* ================================================= */
 
-transacao1.slice(0, 3); // Dep
-transacao2.slice(0, 3); // Dep
-transacao3.slice(0, 3); // Tax
+  // Retorne o último caracter da frase
+  const frase = 'Melhor do ano!';
+  console.log(frase[frase.length - 1]);
+    /* ou */
+    // console.log(frase.slice(-1));
+  
+/* ================================================= */
 
-transacao1.slice(12); // cliente
-transacao1.slice(-4); // ente
-transacao1.slice(3, 6); // ósi
-
-
-console.log(transacao1.slice(1))
-
-console.log(fruta.indexOf('na'));
-
-const preco = 'R$ 99';
-console.log(preco.padStart(10, '.'))
-console.log(preco.padEnd(10, '.'))
-
-const listaPrecos = ['R$ 99', 'R$ 199', 'R$ 12000'];
-
-listaPrecos.forEach((item) => {
-    console.log(item.padStart(10))
+  // Retorne o total de taxas
+  const transacoes1 = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
+  
+  let totalTaxas = 0;
+  transacoes1.forEach((item) => {
+    /* formatar elemento */
+    item = item.trim();
+    /* quebrar o item em array */
+    item = item.split(' ');
+    /* verificar se é taxa */
+    if(item[0].toLowerCase() === 'taxa'){
+        totalTaxas++;
+    }
 })
-
-const frase2 = "Ta";
-
-console.log(frase2.repeat(5));
-
-let listaItens = "camisas bonés calças bermudas vestidos saias"
-listaItens = listaItens.replace(/[ ]+/g, ', '); //regular expressions
-
-const arrayLista = listaItens.split(', ')
-
-console.log(arrayLista)
-
-//transformando as tags:
-const htmlText = '<div>O melhor item</div><div>A melhor lista</div>';
-const htmlArray = htmlText.split('div')
-const novoHtml = htmlArray.join('section')
-
-console.log(htmlText);
-console.log(htmlArray);
-console.log(novoHtml);
-
- const sexo1 = 'Feminino';
- const sexo2 = 'feminino';
- const sexo3 = 'FEMININO';
-
- console.log(sexo1.toLowerCase() === 'feminino')
- console.log(sexo3.toUpperCase() === 'FEMININO')
-
- const valor = '   R$ 23,00   '
- valor.trim(); //remove os espaços do início e do fim
- valor.trimStart(); //remove os espaços do início
- valor.trimEnd(); //remove os espaços do fim
+  console.log(totalTaxas)
+  
