@@ -49,3 +49,35 @@ const listaPrecos = ['R$ 99', 'R$ 199', 'R$ 12000'];
 listaPrecos.forEach((item) => {
     console.log(item.padStart(10))
 })
+
+const frase2 = "Ta";
+
+console.log(frase2.repeat(5));
+
+let listaItens = "camisas bonés calças bermudas vestidos saias"
+listaItens = listaItens.replace(/[ ]+/g, ', '); //regular expressions
+
+const arrayLista = listaItens.split(', ')
+
+console.log(arrayLista)
+
+//transformando as tags:
+const htmlText = '<div>O melhor item</div><div>A melhor lista</div>';
+const htmlArray = htmlText.split('div')
+const novoHtml = htmlArray.join('section')
+
+console.log(htmlText);
+console.log(htmlArray);
+console.log(novoHtml);
+
+ const sexo1 = 'Feminino';
+ const sexo2 = 'feminino';
+ const sexo3 = 'FEMININO';
+
+ console.log(sexo1.toLowerCase() === 'feminino')
+ console.log(sexo3.toUpperCase() === 'FEMININO')
+
+ const valor = '   R$ 23,00   '
+ valor.trim(); //remove os espaços do início e do fim
+ valor.trimStart(); //remove os espaços do início
+ valor.trimEnd(); //remove os espaços do fim
