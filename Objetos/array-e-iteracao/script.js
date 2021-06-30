@@ -114,3 +114,32 @@ const todosMaioresDeIdade = idades.every((item) => {
 })
 //false pois algum dos elementos não é verdadeiro (12)
 console.log(todosMaioresDeIdade);
+
+//procura algo que atenda a busca e assim que achar retorna esse item, parando a função!
+const temBanana2 = listaDeFrutas.find((item) => {
+  return item.toLocaleLowerCase() === 'banana';
+});
+
+console.log(temBanana2);
+
+//procura algo que atenda a busca e assim que achar retorna o index desse item, parando a função!
+const indexBanana = listaDeFrutas.findIndex((item) => {
+  return item.toLocaleLowerCase() === 'banana';
+});
+
+console.log(indexBanana);
+
+const novaListaDeFrutas = ['banana', 'maçã', 0, undefined, 'uva', ''];
+
+//retorna uma array. A array retornada é preenchida com todos os elementos que forem True.
+const filtrarNovaListaDeFrutas = novaListaDeFrutas.filter((item) => {
+  return item;
+});
+
+console.log(filtrarNovaListaDeFrutas);
+
+const aulasMaioresQue10Min = aulas.filter((item) => {
+  return item.min > 10;
+});
+
+console.log(aulasMaioresQue10Min);
