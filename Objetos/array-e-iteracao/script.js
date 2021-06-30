@@ -76,3 +76,41 @@ const menorValor = listaDeNumeros.reduce((acumulador, item) => {
 });
 
 console.log(menorValor);
+
+const nomesAulas2 = aulas.reduce((acumulador, item, index) => {
+  acumulador[index] = item.nome;
+  return acumulador;
+}, {});
+
+console.log(nomesAulas2);
+
+const listaDeFrutas = ['maça', 'Banana', 'abacate', ''];
+
+const frutasAoContrario = listaDeFrutas.reduceRight((acumulador, item) => {
+  acumulador += ' ' + item;
+  return acumulador
+});
+
+console.log(frutasAoContrario);
+
+//retorna True se existir pelo menos um dos elementos do array que dê verdadeiro no if
+const temBanana = listaDeFrutas.some((item) => {
+  return item.toLowerCase() === 'banana' ? true : false
+});
+
+console.log(temBanana);
+
+//retorna False se existir pelo menos um dos elementos do array que dê falso no if
+const temTodasAsFrutas = listaDeFrutas.every((fruta) => {
+  return fruta;
+})
+
+console.log(temTodasAsFrutas);
+
+const idades = [18, 40, 36, 12, 33]
+
+const todosMaioresDeIdade = idades.every((item) => {
+  return item >= 18;
+})
+//false pois algum dos elementos não é verdadeiro (12)
+console.log(todosMaioresDeIdade);
