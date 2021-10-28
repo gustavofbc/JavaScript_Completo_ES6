@@ -1,145 +1,77 @@
-const carros = ['Dodge charger', 'Skyline', 'Supra']
+// Selecione cada curso e retorne uma array
+// com objetos contendo o título, descricao,
+// aulas e horas de cada curso
+const cursos = document.querySelectorAll('.curso');
+//criando uma array com os elementos que achei acima
+const arrayCursos = Array.from(cursos);
 
-carros.forEach((item, index, array) => {
-  console.log(item.toUpperCase());
+//uso o map pois quero uma nova array
+const objetosCurso = arrayCursos.map((item) => {
+  const titulo = item.querySelector('h1').innerText;
+  const descricao = item.querySelector('p').innerText;
+  const aulas = item.querySelector('.aulas').innerText;
+  const horas = item.querySelector('.horas').innerText;
+  // o return é um obj
+  return {
+    titulo: titulo,
+    descricao: descricao,
+    aulas: aulas,
+    horas: horas,
+  }
 })
 
-const li = document.querySelectorAll('li');
+console.log(objetosCurso);
 
-li.forEach((item) => {item.classList.add('ativa')})
+// Retorne uma lista com os
+// números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
 
-const novosCarros = carros.map((item) => {
-  return 'NOVO ' + item.toUpperCase();
-})
+const maiorQue100 = numeros.filter( item => item > 100  )
 
-console.log(novosCarros);
+console.log(maiorQue100);
 
-const numeros = [2, 4, 6, 8, 10]
-const numerosX2 = numeros.map((item) => item * 2); //quando não tem "{}" significa que tem um "return" direto na função
 
-console.log(numeros);
-console.log(numerosX2);
+// Verifique se Baixo faz parte
+// da lista de instrumentos e retorne true
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
 
-const aulas = [
+const temBaixo = instrumentos.some((instrumento) => {
+  return instrumento === 'Baixo';
+});
+
+console.log(temBaixo);
+
+// Retorne o valor total das compras
+const compras = [
   {
-    nome: 'HTML 1',
-    min: 25
+    item: 'Banana',
+    preco: 'R$ 4,99'
   },
   {
-    nome: 'HTML 2',
-    min: 10
-  },  {
-    nome: 'CSS 1',
-    min: 5
-  },  {
-    nome: 'JS 1',
-    min: 15
+    item: 'Ovo',
+    preco: 'R$ 2,99'
   },
+  {
+    item: 'Carne',
+    preco: 'R$ 25,49'
+  },
+  {
+    item: 'Refrigerante',
+    preco: 'R$ 5,35'
+  },
+  {
+    item: 'Quejo',
+    preco: 'R$ 10,60'
+  }
 ]
-
-const nomesAulas = aulas.map((aula) => {
-  return aula.nome;
+const precos = compras.map(compra => {
+  // compra.preco.replace(',', '.');
+  let precosTratado = compra.preco.replace(',','.').replace('R$ ', '');
+  
+  return parseFloat(precosTratado);
 })
 
-console.log(nomesAulas);
+console.log(precos);
+const totalPreco = precos.reduce( (acc, cur) => acc + cur);
 
-const duracaoAulas = aulas.map((aula) => {
-  return aula.min;
-});
-
-//map com função externa
-function nomesDasAulas(aula) {
-  return aula.nome;
-}
-const duracaoAulas2 = aulas.map( aula =>  nomesDasAulas(aula));
-
-console.log(duracaoAulas);
-console.log(duracaoAulas2);
-
-//o acumulador funciona salvando o valor do retorno da função a cada vez que ela é iterada
-const minutosAulas = duracaoAulas.reduce((acumulador, item, index, array) => {
-  return acumulador + item;
-}, 0)
-
-console.log(minutosAulas);
-
-const listaDeNumeros = [ 10, 20, 3, 43, 78, 19]
-
-const maiorValor = listaDeNumeros.reduce((acumulador, item) => {
-  return acumulador > item ? acumulador : item
-});
-
-console.log(maiorValor)
-
-const menorValor = listaDeNumeros.reduce((acumulador, item) => {
-  return acumulador < item ? acumulador : item
-});
-
-console.log(menorValor);
-
-const nomesAulas2 = aulas.reduce((acumulador, item, index) => {
-  acumulador[index] = item.nome;
-  return acumulador;
-}, {});
-
-console.log(nomesAulas2);
-
-const listaDeFrutas = ['maça', 'Banana', 'abacate', ''];
-
-const frutasAoContrario = listaDeFrutas.reduceRight((acumulador, item) => {
-  acumulador += ' ' + item;
-  return acumulador
-});
-
-console.log(frutasAoContrario);
-
-//retorna True se existir pelo menos um dos elementos do array que dê verdadeiro no if
-const temBanana = listaDeFrutas.some((item) => {
-  return item.toLowerCase() === 'banana' ? true : false
-});
-
-console.log(temBanana);
-
-//retorna False se existir pelo menos um dos elementos do array que dê falso no if
-const temTodasAsFrutas = listaDeFrutas.every((fruta) => {
-  return fruta;
-})
-
-console.log(temTodasAsFrutas);
-
-const idades = [18, 40, 36, 12, 33]
-
-const todosMaioresDeIdade = idades.every((item) => {
-  return item >= 18;
-})
-//false pois algum dos elementos não é verdadeiro (12)
-console.log(todosMaioresDeIdade);
-
-//procura algo que atenda a busca e assim que achar retorna esse item, parando a função!
-const temBanana2 = listaDeFrutas.find((item) => {
-  return item.toLocaleLowerCase() === 'banana';
-});
-
-console.log(temBanana2);
-
-//procura algo que atenda a busca e assim que achar retorna o index desse item, parando a função!
-const indexBanana = listaDeFrutas.findIndex((item) => {
-  return item.toLocaleLowerCase() === 'banana';
-});
-
-console.log(indexBanana);
-
-const novaListaDeFrutas = ['banana', 'maçã', 0, undefined, 'uva', ''];
-
-//retorna uma array. A array retornada é preenchida com todos os elementos que forem True.
-const filtrarNovaListaDeFrutas = novaListaDeFrutas.filter((item) => {
-  return item;
-});
-
-console.log(filtrarNovaListaDeFrutas);
-
-const aulasMaioresQue10Min = aulas.filter((item) => {
-  return item.min > 10;
-});
-
-console.log(aulasMaioresQue10Min);
+console.log(totalPreco);
