@@ -6,9 +6,6 @@ controles.addEventListener('change', handleChange);
 
 const handleStyle = {
   element: btn,
-  text(value) {
-    this.element.innerText = value;
-  },
   backgroundColor(value) {
     this.element.style.backgroundColor = value;
   },
@@ -57,7 +54,7 @@ function setValues() {
     handleStyle[propertie]( localStorage[propertie])
     controles.elements[propertie].value = localStorage[propertie];
   })
-  showCss
+  showCss();
 }
 
 setValues();
