@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch</title>
+</head>
+<body>
+  <!-- <img src="" alt="">
+  <div class="conteudo"></div>
+  <h1></h1> -->
+    <form name="buscadorDeCep" id="buscadorDeCep">
+      <label for="cep">CEP:</label>
+      <input type="number" name="cep" id="cep">
+      <button class="buscar" type="submit">Buscar</button>
+      <span class="conteudo"></span>
+    </form>
+
+    <h2>Valor da Bitcoin:
+      <span class="valorBitcoin"></span>
+    </h2>
+
+    <div class="ex3">
+      <button class="btnProximaPiaba">Próxima</button>
+      <span class="piada"></span>
+    </div>
+
+  <script src="script.js"></script>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    span {
+      display: flex;
+    }
+
+    #buscadorDeCep {
+      height: 400px;
+    }
+
+    .ex3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btnProximaPiaba {
+      display: block;
+      margin-bottom: 40px;
+      width: 100px;
+      height: 40px;
+    }
+
+  </style>
+</body>
+</html>
