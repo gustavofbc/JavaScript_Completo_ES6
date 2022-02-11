@@ -1,36 +1,58 @@
-// 'use strict'
+function $$(selectedElements){
+    const elements = document.querySelectorAll(selectedElements);
 
-// function createButton(text){
-//     function element() {
-//         const buttonElement = document.createElement('button');
-//         buttonElement.innerText = text;
-//         return buttonElement;
-//     }
+    function hide() {
+        elements.forEach(element => {
+            element.style.display = 'none';
+        })
+        return this;
+    }
 
-//     return Object.freeze({
-//         text: text,
-//         element: element,
-//     })
-// }
+    function show() {
+        elements.forEach(element => {
+            element.style.display = 'initial';
+        })
+        return this;
+    }
 
-// const btnComprar = createButton('Comprar');
-// const btnVender = createButton('Vender');
+    function on(onEvent, callback){
+        elements.forEach(element => {
+            element.addEventListener(onEvent, callback);
+        })
+        return this;
+    }
 
-// btnComprar.text = 'novo text'
-// btnComprar.element = 'novo text'
+    function addClass(className){
+        elements.forEach(element => {
+            element.classList.add(className);
+        })
+        return this;
+    }
 
-// console.log(btnComprar, btnVender)
+    function removeClass(className){
+        elements.forEach(element => {
+            element.classList.remove(className);
+        })
+        return this;
+    }
 
-function Pessoa(nome){
-    if(!(this instanceof Pessoa))
-        return new Pessoa(nome);
-    this.nome = nome;
+    return {
+        elements,
+        hide,
+        show,
+        on,
+        addClass,
+        removeClass
+    }
 }
 
-Pessoa.prototype.andar = function() {
-    return `${this.nome} andou`;
+const btns = $$('button');
+
+console.log(btns.hide().show())
+
+function handleClick(event){
+    btns.addClass('active')
 }
 
-const designer =  Pessoa('Gustavo');
+btns.on('click', handleClick)
 
-console.log(designer)
