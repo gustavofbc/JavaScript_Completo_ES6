@@ -1,5 +1,4 @@
 import ScrollSuave from "./modules/scroll-suave.js";
-import initScrollAnimacao from "./modules/scroll-animacao.js";
 import InitAcordion from "./modules/accordion.js";
 import initTabNav from "./modules/tabNav.js";
 import initModal from "./modules/modal.js";
@@ -9,6 +8,7 @@ import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
 import initFetchBitcoin from "./modules/fetch-bitcoin.js";
+import initScrollAnimacao from "./modules/scroll-animacao.js";
 
 const options = {
   behavior: "smooth",
@@ -21,7 +21,6 @@ const scrollSuave = new ScrollSuave(
 scrollSuave.init();
 
 //note: a ordem de adição dos módulos importa
-initScrollAnimacao();
 InitAcordion();
 initTabNav();
 initModal();
@@ -31,3 +30,4 @@ initMenuMobile();
 initFuncionamento();
 initFetchAnimais();
 initFetchBitcoin();
+initScrollAnimacao();
