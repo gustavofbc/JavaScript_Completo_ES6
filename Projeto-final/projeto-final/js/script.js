@@ -34,6 +34,7 @@ tooltip.init();
 
 const scrollAnima = new ScrollAnima('[data-anime="js-scroll"]');
 scrollAnima.init();
+// scrollAnima.stop();
 
 //note: a ordem de adição dos módulos importa
 initDropdownMenu();
