@@ -3,12 +3,12 @@ import Accordion from "./modules/accordion.js";
 import TabNav from "./modules/tabNav.js";
 import Tooltip from "./modules/tootip.js";
 import Modal from "./modules/modal.js";
-import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetch-animais.js";
 import fetchBitcoin from "./modules/fetch-bitcoin.js";
 import ScrollAnima from "./modules/scroll-anima.js";
+import DropdownMenu from "./modules/dropdown-menu.js";
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -36,8 +36,10 @@ const scrollAnima = new ScrollAnima('[data-anime="js-scroll"]');
 scrollAnima.init();
 // scrollAnima.stop();
 
+const dropdowm = new DropdownMenu("[data-dropdown]");
+dropdowm.init();
+
 //note: a ordem de adição dos módulos importa
-initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
 
