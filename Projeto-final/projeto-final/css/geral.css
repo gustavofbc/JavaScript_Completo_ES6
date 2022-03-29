@@ -20,7 +20,7 @@ ul {
   list-style: none;
 }
 
-.grid-container{
+.grid-container {
   background-color: #faf6ed;
   color: #222;
   -webkit-font-smoothing: antialiased;
@@ -221,7 +221,7 @@ ul {
   }
 
   .grid-section h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .menu {
@@ -233,15 +233,15 @@ ul {
   }
 }
 
-[data-tab="content"]  section {
+[data-tab="content"] section {
   display: none;
 }
 
-[data-tab="content"]  section.ativo {
+[data-tab="content"] section.ativo {
   display: block !important;
 }
 
-[data-tab="content"]  section.ativo.show-right {
+[data-tab="content"] section.ativo.show-right {
   animation: show-right 0.5s forwards;
 }
 
@@ -276,12 +276,19 @@ ul {
 }
 
 [data-anime="accordion"] dt:after {
-  content: "↴";
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: url("../img/arrow-red.svg") no-repeat center center;
   margin-left: 10px;
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 }
 
 [data-anime="accordion"] dt.ativo:after {
-  content: "⬏";
+  content: "";
+  transform: rotate(-90deg);
 }
 
 [data-anime="accordion"] dd.ativo {
@@ -313,7 +320,7 @@ ul {
 
 [data-semana]::after {
   display: inline-block;
-  content: '';
+  content: "";
   width: 6px;
   height: 6px;
   background: #e54;
@@ -323,12 +330,19 @@ ul {
 }
 
 [data-semana].ativo::after {
-  background: #3F4;
+  background: #3f4;
 }
 
 .btc-preco {
-  background: #3F4;
-  padding: .2rem .5rem;
+  background: #3f4;
+  padding: 0.2rem 0.5rem;
   font-weight: bold;
   border-radius: 2px;
+}
+
+.arrow-black {
+  background: url("../img/arrow-black.svg") no-repeat center center;
+  display: inline-block;
+  width: 8px;
+  height: 10px;
 }
